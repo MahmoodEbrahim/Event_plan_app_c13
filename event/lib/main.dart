@@ -1,6 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:event/Provider/my_provider.dart';
-import 'package:event/firstScreen.dart';
+import 'package:event/screen/firstScreen.dart';
+import 'package:event/screen/forgetpassscreen.dart';
+import 'package:event/screen/login_screen.dart';
+import 'package:event/screen/register_screen.dart';
 import 'package:event/theme/darktheme.dart';
 import 'package:event/theme/lighttheme.dart';
 import 'package:event/theme/theme.dart';
@@ -44,6 +47,9 @@ class MyApp extends StatelessWidget {
       themeMode: provider.themeMode,
       routes: {
         Firstscreen.routeName: (context) => Firstscreen(),
+        loginscreen.routeName: (context)=> loginscreen(),
+        registerscreen.routeName: (context)=> registerscreen(),
+        Forgetpassscreen.routeName: (context)=> Forgetpassscreen(),
       },
     );
   }

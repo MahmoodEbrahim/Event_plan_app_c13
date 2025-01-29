@@ -8,7 +8,9 @@ class Darktheme extends baseTheme {
   Color get textcolor => Color(0xffF4EBDC);
   ThemeData get Themedata => ThemeData(
         scaffoldBackgroundColor: bgcolor,
-        appBarTheme: AppBarTheme(
+    focusColor: primarycolor,
+
+    appBarTheme: AppBarTheme(
           backgroundColor: bgcolor,
           centerTitle: true,
           iconTheme: IconThemeData(
@@ -26,17 +28,14 @@ class Darktheme extends baseTheme {
         textTheme: TextTheme(
           titleMedium: GoogleFonts.inter(
             fontSize: 20,
-            color: primarycolor,
             fontWeight: FontWeight.bold,
           ),
           titleLarge: GoogleFonts.inter(
             fontSize: 25,
-            color: primarycolor,
             fontWeight: FontWeight.bold,
           ),
           titleSmall: GoogleFonts.inter(
             fontSize: 16,
-            color: primarycolor,
             fontWeight: FontWeight.bold,
           ),
         ),

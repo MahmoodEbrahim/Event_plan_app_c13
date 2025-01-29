@@ -1,11 +1,12 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:event/screen/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_material_design_icons/flutter_material_design_icons.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 
-import 'Provider/my_provider.dart';
+import '../Provider/my_provider.dart';
 
 class Firstscreen extends StatelessWidget {
   static const String routeName = "FirstSreen";
@@ -19,13 +20,17 @@ class Firstscreen extends StatelessWidget {
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.only(bottom: 18, left: 15, right: 18),
         child: ElevatedButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, loginscreen.routeName);
+
+          },
           style: ElevatedButton.styleFrom(
               padding: EdgeInsets.symmetric(vertical: 12),
               backgroundColor: Color(0xff5669FF),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16),
-              )),
+              ),
+          ),
           child: Text(
             "Lets_start".tr(),
             style: Theme.of(context)

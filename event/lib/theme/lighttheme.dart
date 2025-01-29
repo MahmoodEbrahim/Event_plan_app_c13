@@ -8,7 +8,9 @@ class Lighttheme extends baseTheme {
   Color get textcolor => Color(0xff1C1C1C);
   ThemeData get Themedata => ThemeData(
         scaffoldBackgroundColor: bgcolor,
+        focusColor: Color(0xff7B7B7B),
         appBarTheme: AppBarTheme(
+
           backgroundColor: bgcolor,
           centerTitle: true,
           iconTheme: IconThemeData(
@@ -26,17 +28,14 @@ class Lighttheme extends baseTheme {
         textTheme: TextTheme(
           titleMedium: GoogleFonts.inter(
             fontSize: 20,
-            color: primarycolor,
             fontWeight: FontWeight.bold,
           ),
           titleLarge: GoogleFonts.inter(
             fontSize: 25,
-            color: primarycolor,
             fontWeight: FontWeight.bold,
           ),
           titleSmall: GoogleFonts.inter(
             fontSize: 16,
-            color: primarycolor,
             fontWeight: FontWeight.bold,
           ),
         ),
