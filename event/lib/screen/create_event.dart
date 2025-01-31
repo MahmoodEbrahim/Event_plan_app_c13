@@ -109,6 +109,8 @@ class CreateEvent extends StatelessWidget {
                         style: Theme.of(context).textTheme.titleSmall,
                       ),
                     ),
+                    SizedBox(height: 12,),
+
                     TextField(
                       style: Theme.of(context).textTheme.bodySmall!.copyWith(
                         color: Theme.of(context).focusColor,
@@ -159,6 +161,22 @@ class CreateEvent extends StatelessWidget {
                         )
                       ],
                     ),
+                    SizedBox(height: 24,),
+                    Row(
+                      children: [
+                        Icon(MdiIcons.clock),
+                        SizedBox(width: 12,),
+                        Text("Event Time",style: Theme.of(context).textTheme.titleSmall,),
+                        Spacer(),
+                        InkWell(
+                          onTap: (){},
+                          child: Text("Choose Time",style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                              color: Theme.of(context).primaryColor
+                          ),),
+                        )
+                      ],
+                    ),
+                    SizedBox(height: 24,),
 
                   ],
                 )
