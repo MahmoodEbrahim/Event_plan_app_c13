@@ -158,10 +158,7 @@ class CreateEvent extends StatelessWidget {
                           ),),
                         )
                       ],
-                    )
-
-
-
+                    ),
 
                   ],
                 )
