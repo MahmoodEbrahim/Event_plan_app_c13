@@ -1,5 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:event/Provider/my_provider.dart';
+import 'package:event/firebase/firebase_manger.dart';
+import 'package:event/firebase_options.dart';
 import 'package:event/screen/Homescreen.dart';
 import 'package:event/screen/create_event.dart';
 import 'package:event/screen/firstScreen.dart';
@@ -9,12 +11,19 @@ import 'package:event/screen/register_screen.dart';
 import 'package:event/theme/darktheme.dart';
 import 'package:event/theme/lighttheme.dart';
 import 'package:event/theme/theme.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
+  await Firebase.initializeApp(
+
+    options: DefaultFirebaseOptions.currentPlatform,
+
+  );
   runApp(
     
       ChangeNotifierProvider(
