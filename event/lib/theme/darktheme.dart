@@ -11,12 +11,22 @@ class Darktheme extends baseTheme {
     focusColor: primarycolor,
 
     appBarTheme: AppBarTheme(
-          backgroundColor: bgcolor,
           centerTitle: true,
           iconTheme: IconThemeData(
             color: primarycolor,
           ),
         ),
+    floatingActionButtonTheme: FloatingActionButtonThemeData(
+      shape: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(30),
+          borderSide: BorderSide(
+            width: 4,
+            color: Colors.white,
+          )
+      ),
+      backgroundColor: primarycolor,
+
+    ),
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
           backgroundColor: bgcolor,
           showSelectedLabels: true,

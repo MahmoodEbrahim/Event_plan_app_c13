@@ -32,7 +32,6 @@ class registerscreen extends StatelessWidget {
             Image.asset("assets/images/Logo.png",height: 150,width: 152,),
             SizedBox(height: 16),
             TextField(
-              controller: emailController,
               style:Theme.of(context).textTheme.bodySmall!.copyWith(
                 color: Theme.of(context).focusColor,
               ),
@@ -68,8 +67,7 @@ class registerscreen extends StatelessWidget {
             ),
             SizedBox(height: 16,),
             TextField(
-              controller: paswordController,
-              obscureText: true,
+              controller: emailController,
               style:Theme.of(context).textTheme.bodySmall!.copyWith(
                 color: Theme.of(context).focusColor,
               ),
@@ -80,7 +78,6 @@ class registerscreen extends StatelessWidget {
                   color: Theme.of(context).focusColor,
                 ),
                 prefixIcon: Icon(MdiIcons.email),
-                suffixIcon: Icon(MdiIcons.eye),
                 border: OutlineInputBorder(
                   borderSide: BorderSide(
                     width: 2,
@@ -146,7 +143,6 @@ class registerscreen extends StatelessWidget {
 
             SizedBox(height: 16,),
             TextField(
-              controller: paswordController,
               obscureText: true,
               style:Theme.of(context).textTheme.bodySmall!.copyWith(
                 color: Theme.of(context).focusColor,

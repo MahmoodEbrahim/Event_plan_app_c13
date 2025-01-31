@@ -11,11 +11,21 @@ class Lighttheme extends baseTheme {
         focusColor: Color(0xff7B7B7B),
         appBarTheme: AppBarTheme(
 
-          backgroundColor: bgcolor,
           centerTitle: true,
           iconTheme: IconThemeData(
             color: primarycolor,
           ),
+        ),
+        floatingActionButtonTheme: FloatingActionButtonThemeData(
+          shape: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(30),
+            borderSide: BorderSide(
+              width: 4,
+              color: Colors.white,
+            )
+          ),
+          backgroundColor: primarycolor,
+
         ),
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
           backgroundColor: primarycolor,

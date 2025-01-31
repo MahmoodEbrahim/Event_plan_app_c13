@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:event/screen/Homescreen.dart';
 import 'package:event/screen/register_screen.dart';
 import 'package:event/theme/theme.dart';
 import 'package:flutter/material.dart';
@@ -132,7 +133,7 @@ class loginscreen extends StatelessWidget {
 
             ElevatedButton(
               onPressed: () {
-
+                Navigator.pushNamed(context, Homescreen.routeName);
               },
               style: ElevatedButton.styleFrom(
                 padding: EdgeInsets.symmetric(vertical: 12),

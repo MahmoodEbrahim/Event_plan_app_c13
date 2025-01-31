@@ -1,5 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:event/Provider/my_provider.dart';
+import 'package:event/screen/Homescreen.dart';
+import 'package:event/screen/create_event.dart';
 import 'package:event/screen/firstScreen.dart';
 import 'package:event/screen/forgetpassscreen.dart';
 import 'package:event/screen/login_screen.dart';
@@ -50,6 +52,8 @@ class MyApp extends StatelessWidget {
         loginscreen.routeName: (context)=> loginscreen(),
         registerscreen.routeName: (context)=> registerscreen(),
         Forgetpassscreen.routeName: (context)=> Forgetpassscreen(),
+        Homescreen.routeName:(context)=>Homescreen(),
+        CreateEvent.routeName:(context)=>CreateEvent()
       },
     );
   }
