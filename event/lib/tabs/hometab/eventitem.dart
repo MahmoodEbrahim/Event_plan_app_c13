@@ -1,7 +1,13 @@
+import 'package:easy_localization/easy_localization.dart';
+import 'package:event/firebase/firebase_manger.dart';
 import 'package:flutter/material.dart';
 
+import '../../model/task_model.dart';
+
 class Eventitem extends StatelessWidget {
-  const Eventitem({super.key});
+  TaskModel model;
+
+  Eventitem({required this.model,super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +23,7 @@ class Eventitem extends StatelessWidget {
 
               ClipRRect(
                   borderRadius: BorderRadius.circular(24),
-                  child: Image.asset("assets/images/game.png")),
+                  child: Image.asset("assets/images/${model.category}.png")),
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 14,vertical: 8),
                 margin: EdgeInsets.symmetric(horizontal: 8,vertical: 14),
@@ -29,10 +35,29 @@ class Eventitem extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("This is a Game Party ",style: Theme.of(context).textTheme.titleSmall,),
-                    Icon(Icons.favorite_border)
+                    Text(
+                      model.title,
+                      style: Theme.of(context).textTheme.titleSmall,
+                    ),
+                    Row(
+                      children: [
+                        InkWell(
+                          onTap: () {
+                          },
+                          child: Icon(Icons.favorite_border),
+                        ),
+                        SizedBox(width: 8),
+                        InkWell(
+                          onTap: () {
+                            FirebaseManger.delete(model.id);
+                          },
+                          child: Icon(Icons.delete),
+                        ),
+                      ],
+                    ),
                   ],
                 ),
+
               )
             ],
           ),
@@ -52,11 +77,13 @@ class Eventitem extends StatelessWidget {
             
             child: Column(
               children: [
-                Text("20",style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                Text(
+                  DateTime.fromMillisecondsSinceEpoch(model.date).toString().substring(8,10),
+                  style: Theme.of(context).textTheme.titleSmall!.copyWith(
                   color: Theme.of(context).primaryColor,
                 ),
                 ),
-                Text("NOV",style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                Text(MSTM(model.date),style: Theme.of(context).textTheme.titleSmall!.copyWith(
                   color: Theme.of(context).primaryColor,),)
 
               ],
@@ -66,4 +93,8 @@ class Eventitem extends StatelessWidget {
       ),
     );
   }
+}
+String MSTM(int millisecond){
+  DateTime date=DateTime.fromMillisecondsSinceEpoch(millisecond);
+  return DateFormat('MMM').format(date);
 }

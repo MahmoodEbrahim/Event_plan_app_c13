@@ -23,8 +23,12 @@ static CollectionReference<TaskModel> getcolection(){
   task.id=docref.id;
 return docref.set(task);
   }
- static Future<QuerySnapshot<TaskModel>> getEvent(){
+ static Stream<QuerySnapshot<TaskModel>> getEvent(){
     var colection=getcolection();
-return colection.get();
+return colection.snapshots();
+  }
+  static Future<void> delete(String id){
+    var colection=getcolection();
+return colection.doc(id).delete();
   }
 }
