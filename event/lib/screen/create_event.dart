@@ -2,6 +2,7 @@ import 'package:event/Provider/create_event_provider.dart';
 import 'package:event/firebase/firebase_manger.dart';
 import 'package:event/model/task_model.dart';
 import 'package:event/widget/category_event_item.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_material_design_icons/flutter_material_design_icons.dart';
@@ -201,7 +202,7 @@ class CreateEvent extends StatelessWidget {
                             ),
                           ),
                           onPressed: () {
-                           TaskModel task= TaskModel(category: provder.EventCatogery[provder.selectCatogery], desc: desccontroller.text, isDone: false, date: provder.selecteddate.millisecondsSinceEpoch, title: titlecontroller.text,);
+                           TaskModel task= TaskModel(userid: FirebaseAuth.instance.currentUser!.uid,category: provder.EventCatogery[provder.selectCatogery], desc: desccontroller.text, isDone: false, date: provder.selecteddate.millisecondsSinceEpoch, title: titlecontroller.text,);
                             FirebaseManger.addEvent(task).then((value){
                               Navigator.pop(context);
                            },);

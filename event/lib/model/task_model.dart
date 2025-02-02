@@ -5,6 +5,8 @@ class TaskModel{
   bool isDone;
   String category;
   int date;
+  String userid;
+
 
   TaskModel(
   {
@@ -13,6 +15,8 @@ class TaskModel{
     required this.desc,
     required this.isDone,
     required this.date,
+    required this.userid,
+
     required this.title,
 }
       );
@@ -21,6 +25,8 @@ class TaskModel{
     category: json['category'],
     desc: json['desc'],
     isDone: json['isDone'],
+    userid: json['userid'],
+
     date: json['date'],
     title: json['title'],
 
@@ -33,6 +39,8 @@ class TaskModel{
       'desc': desc,
       'isDone': isDone,
       'date': date,
+      'userid': userid,
+
       'title': title,
 
 

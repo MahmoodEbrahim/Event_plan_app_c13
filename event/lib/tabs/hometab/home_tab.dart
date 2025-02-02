@@ -6,8 +6,19 @@ import 'package:flutter/material.dart';
 import '../../model/task_model.dart';
 
 
-class HomeTab extends StatelessWidget {
+class HomeTab extends StatefulWidget {
    HomeTab({super.key});
+
+  @override
+  State<HomeTab> createState() => _HomeTabState();
+}
+
+class _HomeTabState extends State<HomeTab> {
+   List<String> EventCatogery=[
+     'All','birthday','holiday','game','work','meeting','book1','sport','Exhibition','eating'
+   ];
+
+   int selectcategeroy=0;
 
   @override
   Widget build(BuildContext context) {
@@ -75,9 +86,41 @@ class HomeTab extends StatelessWidget {
                   )),
                 ],
               ),
+              SizedBox(height: 9,),
               Container(
+                alignment: Alignment.center,
                 height: 40,
-                color: Colors.cyan,
+                child: ListView.separated(
+                  separatorBuilder: (context,index)=>
+                    SizedBox(width: 8,),
+
+                  scrollDirection: Axis.horizontal,
+                    itemBuilder: (context,index){
+                      return InkWell(
+                        onTap: (){
+                          selectcategeroy=index;
+                          setState(() {
+
+                          });
+                        },
+                        child: Container(
+                          alignment: Alignment.center,
+                          padding: EdgeInsets.symmetric(horizontal: 12),
+                          decoration: BoxDecoration(
+
+                            color: selectcategeroy!=index? Theme.of(context).primaryColor: Colors.white,
+                            border: Border.all(
+                              color: Colors.white
+                            ),
+                            borderRadius: BorderRadius.circular(18),
+                          ),
+                          child: Text(EventCatogery[index],style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                             color: selectcategeroy==index? Theme.of(context).primaryColor: Colors.white,
+                          ),),
+                        ),
+                      );
+                    },
+                    itemCount: EventCatogery.length),
               )
             ],
           ),
@@ -87,7 +130,7 @@ class HomeTab extends StatelessWidget {
 
       ),
       body: StreamBuilder<QuerySnapshot<TaskModel>>(
-        stream: FirebaseManger.getEvent(),
+        stream: FirebaseManger.getEvent(EventCatogery[selectcategeroy]),
         builder: (context,snapshot){
           return  Padding(
             padding: const EdgeInsets.all(16.0),

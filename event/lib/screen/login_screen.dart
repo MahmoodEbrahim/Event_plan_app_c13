@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:event/firebase/firebase_manger.dart';
 import 'package:event/screen/Homescreen.dart';
 import 'package:event/screen/register_screen.dart';
 import 'package:event/theme/theme.dart';
@@ -133,7 +134,40 @@ class loginscreen extends StatelessWidget {
 
             ElevatedButton(
               onPressed: () {
-                Navigator.pushNamed(context, Homescreen.routeName);
+                FirebaseManger.login(emailController.text, paswordController.text ,
+                      (){
+                  showDialog(context: context, builder: (context)=>AlertDialog(
+                    title: Center(
+                        child: CircularProgressIndicator()),
+                    backgroundColor: Colors.blue,
+                  ));
+                },
+                      (){
+                    Navigator.pushNamedAndRemoveUntil(context, Homescreen.routeName, (route)=>false);
+                  },
+                      (message){
+
+                    Navigator.pop(context);
+
+                    showDialog(context: context, builder: (context)=>AlertDialog(
+
+                      title: Center(
+
+                        child: Text("Something went Wrong"),
+
+                      ),
+                      content: Text(message),
+
+
+                      actions: [ElevatedButton(onPressed: (){
+                        Navigator.pop(context);
+
+                      }, child: Text("Done"))],
+
+                      backgroundColor: Colors.transparent,
+                    ));},
+
+                );
               },
               style: ElevatedButton.styleFrom(
                 padding: EdgeInsets.symmetric(vertical: 12),
@@ -187,7 +221,8 @@ class loginscreen extends StatelessWidget {
               ],
             ),
             SizedBox(height: 20,),
-            ElevatedButton(onPressed: _handleSignIn,
+            ElevatedButton(
+                onPressed: _handleSignIn,
               style: ElevatedButton.styleFrom(
                   padding: EdgeInsets.symmetric(vertical: 20),
                   backgroundColor: Color(0xffF2FEFF),
